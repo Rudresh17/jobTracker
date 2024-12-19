@@ -23,7 +23,7 @@ router.get("/google/callback", passport.authenticate('google',{
         const displayName=req.user.displayName
         const token = jwt.sign({ googleId,displayName }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.cookie("authToken", token, { httpOnly: true, secure: true });
-        res.redirect(`http://localhost:3000/dashboard`)
+        res.redirect(`https://job-tracker-frontend-lake.vercel.app/dashboard`)
     }
     catch(err)
     {
