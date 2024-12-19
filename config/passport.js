@@ -10,7 +10,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_SECRET,
-        callbackURL: '/auth/google/callback',
+        callbackURL: 'https://jobtracker-m84h.onrender.com/auth/google/callback',
       },
       async (accessToken, refreshToken, profile, done) => {
         console.log(accessToken, 'accesstoken');
