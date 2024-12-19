@@ -19,7 +19,7 @@ connectDB()
 const app = express()
 
 const corsOptions ={
-  origin:'https://job-tracker-frontend-lake.vercel.app/', 
+  origin:'*', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
