@@ -48,7 +48,6 @@ router.get("/data",auth,async (req,res)=>{
 })
 
 
-
 router.get("/emails",auth,async (req,res)=>{
     
   console.log("In email function");
@@ -102,10 +101,20 @@ router.get("/emails",auth,async (req,res)=>{
         }
   
         // Define or pass your regex here
-        const regex = /your-regex-pattern/; // Replace with your regex
-        const found = regex.test(snippet);
+        // Regex to detect job-related emails (job applications, interview offers, etc.)
+       const jobApplicationRegex = /\b(job|application|interview|offer|recruiter|position|hiring|vacancy|resume|cv|thanks for applying)\b/i;
+// Replace with your regex
+        const found = jobApplicationRegex.test(body);
   
-        if (parts) {
+        if (found) {
+          // await Email.create({
+          //   userId: req.user.user[0].googleId,
+          //   from:from,
+          //   subject:subject,
+          //   snippet:snippet,
+          //   body: body
+
+          // })
           emails.push({ from, subject, body, snippet });
           console.log("Email stored:", { from, subject });
         }
@@ -123,23 +132,21 @@ router.get("/emails",auth,async (req,res)=>{
   }
   
 
-  
-
-
-
-
-
-
-    
- 
-    
-  
-    
-
-    
-
     
 })
+
+
+router.get("/saved",auth,async (req,res)=>{
+
+  console.log(req.user)
+  userID=req.user.user[0].googleId,
+
+  allEmails= await Email.find({userId:userID})
+  console.log(allEmails.length)
+
+
+})
+
 
 
 
