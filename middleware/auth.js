@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User= require("../models/User")
 
 const authenticateToken = async (req, res, next) => {
+    console.log("Cookies received:", req.cookies);
     const token = req.cookies.authToken
     console.log(token,"middlware")
     
