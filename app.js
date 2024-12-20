@@ -19,10 +19,8 @@ connectDB()
 const app = express()
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    callback(null, true); // Allow all origins dynamically
-  },
-  credentials: true,
+  origin: "https://job-tracker-frontend-lake.vercel.app", // Explicitly set allowed origin
+  credentials: true, // Allow cookies to be sent
   optionSuccessStatus: 200
 };
 app.use(cors(corsOptions)); 
