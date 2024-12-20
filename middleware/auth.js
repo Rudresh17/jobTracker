@@ -3,6 +3,7 @@ const User= require("../models/User")
 
 const authenticateToken = async (req, res, next) => {
     console.log("Cookies received:", req.cookies);
+    console.log("Cookies received:", req.headers);
     const token = req.cookies.authToken
     console.log(token,"middlware")
     
