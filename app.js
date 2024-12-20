@@ -30,7 +30,8 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true }
+    
+    cookie: { httpOnly: true,secure: true,sameSite: 'none' }
   }))
 
 app.use(passport.initialize())
