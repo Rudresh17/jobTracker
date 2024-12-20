@@ -21,7 +21,7 @@ const gmail = google.gmail({version: 'v1', authi});
 // @desc Login/Landing Page
 
 router.get("/",(req,res)=>{
-    res.send("login page")
+    res.send("Hopeully , I can complete this project")
 })
 
 // @desc Dashboard/
